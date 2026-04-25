@@ -611,7 +611,7 @@ const [department, setDepartment] = useState<"dental" | "derma" | "">("");
         <div className="hero-bg" />
         <div className="cross-mark">✚</div>
         <div className="hero-inner">
-          <div className="badge">Est. 2009 · Trusted Healthcare</div>
+          <div className="badge">Experience Excellence in Dental & Skin Service</div>
           <h1 className="clinic-name">
             Holy  <em>Smile</em><br />Skin & Dental<br/>
           </h1>
