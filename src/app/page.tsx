@@ -80,23 +80,28 @@ async function submitBooking(payload: BookingPayload): Promise<BookingResponse> 
 
 // ─── Ailment suggestions ───────────────────────────────────────────────────────
 
-const AILMENTS = [
-  "General Checkup",
-  "Fever / Cold / Flu",
-  "Skin Condition",
-  "Back or Joint Pain",
-  "Digestive Issues",
-  "Respiratory Problem",
-  "Headache / Migraine",
-  "Blood Pressure / Heart",
-  "Diabetes Management",
-  "Eye / Ear / Nose",
-  "Anxiety / Sleep Issues",
-  "Vaccination",
-  "Child Health",
-  "Women's Health",
-  "Other",
-];
+
+
+const AILMENTS = {
+  dental: [
+    "Root Canal Treatment",
+    "Crown and Bridges",
+    "Dental Implant",
+    "Extraction",
+    "Aligners",
+    "Braces",
+    "Teeth Whitening",
+  ],
+  derma: [
+    "Anti-Ageing Therapy",
+    "Advance Laser Treatment",
+    "Acne Treatment",
+    "Hair Restoration & Transplant",
+    "Skin Depigmentation",
+    "PRP and Mesotherapy",
+    "Chemical Peel",
+  ],
+};
 
 // ─── Step indicator ────────────────────────────────────────────────────────────
 
@@ -131,6 +136,8 @@ export default function ClinicPage() {
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
   const [address, setAddress] = useState("");
+ 
+const [department, setDepartment] = useState<"dental" | "derma" | "">("");
   const [ailment, setAilment] = useState("");
   const [phone, setPhone] = useState("");
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -606,30 +613,31 @@ export default function ClinicPage() {
         <div className="hero-inner">
           <div className="badge">Est. 2009 · Trusted Healthcare</div>
           <h1 className="clinic-name">
-            Sinha <em>Care</em><br />Clinic
+            Holy  <em>Smile</em><br />Skin & Dental<br/>
           </h1>
+          <h3>Advanced Medical Clinic</h3>
           <p className="tagline">
-            Compassionate care, close to home — Dr. A. K. Sinha & Associates
+            Derma & Dental in one place — Dr. Amit Nandi & Dr. Prapti Mitra
           </p>
           <button className="book-btn" onClick={() => setShowForm(true)}>
             Book an Appointment
           </button>
           <div className="trust-row">
             <div className="trust-item">
-              <div className="trust-num">18k+</div>
-              <div className="trust-label">Patients Treated</div>
+              <div className="trust-num">24hrs</div>
+              <div className="trust-label">Service</div>
             </div>
-            <div className="trust-item">
+            {/* <div className="trust-item">
               <div className="trust-num">6</div>
               <div className="trust-label">Specialist Doctors</div>
             </div>
             <div className="trust-item">
               <div className="trust-num">15yr</div>
               <div className="trust-label">Of Service</div>
-            </div>
+            </div> */}
             <div className="trust-item">
               <div className="trust-num">Mon–Sat</div>
-              <div className="trust-label">9am – 5pm</div>
+              <div className="trust-label">10:30am – 8pm</div>
             </div>
           </div>
         </div>
@@ -654,7 +662,7 @@ export default function ClinicPage() {
                     <label>Full Name *</label>
                     <input
                       type="text"
-                      placeholder="Ramesh Kumar"
+                      placeholder="Name"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                     />
@@ -664,7 +672,7 @@ export default function ClinicPage() {
                     <label>Age *</label>
                     <input
                       type="number"
-                      placeholder="32"
+                      placeholder=""
                       value={age}
                       onChange={(e) => setAge(e.target.value)}
                       min={1} max={120}
@@ -677,29 +685,65 @@ export default function ClinicPage() {
                   <label>Address *</label>
                   <input
                     type="text"
-                    placeholder="123 Park Street, Kolkata, WB"
+                    placeholder="Address"
                     value={address}
                     onChange={(e) => setAddress(e.target.value)}
                   />
                   {errors.address && <div className="err">{errors.address}</div>}
                 </div>
 
+               {/* Step 1: Pick department */}
                 <div className="field">
-                  <label>Primary Ailment *</label>
-                  <select value={ailment} onChange={(e) => setAilment(e.target.value)}>
-                    <option value="">— Select or type your concern —</option>
-                    {AILMENTS.map((a) => (
-                      <option key={a} value={a}>{a}</option>
+                  <label>Department *</label>
+                  <div style={{ display: "flex", gap: 10, marginTop: 4 }}>
+                    {[
+                      { key: "dental", label: "🦷 Dental" },
+                      { key: "derma",  label: "✨ Skin & Hair" },
+                    ].map(({ key, label }) => (
+                      <button
+                        key={key}
+                        type="button"
+                        onClick={() => { setDepartment(key as "dental" | "derma"); setAilment(""); }}
+                        style={{
+                          flex: 1,
+                          padding: "12px",
+                          borderRadius: 10,
+                          border: `1.5px solid ${department === key ? "#0f766e" : "#d1faf5"}`,
+                          background: department === key ? "#0f766e" : "#f8fffd",
+                          color: department === key ? "#fff" : "#2d6a66",
+                          fontFamily: "inherit",
+                          fontSize: 14,
+                          fontWeight: 600,
+                          cursor: "pointer",
+                          transition: "all 0.2s",
+                        }}
+                      >
+                        {label}
+                      </button>
                     ))}
-                  </select>
-                  {errors.ailment && <div className="err">{errors.ailment}</div>}
+                  </div>
+                  {errors.department && <div className="err">{errors.department}</div>}
                 </div>
+
+                {/* Step 2: Pick ailment based on department */}
+                {department && (
+                  <div className="field">
+                    <label>Service *</label>
+                    <select value={ailment} onChange={(e) => setAilment(e.target.value)}>
+                      <option value="">— Select a service —</option>
+                      {AILMENTS[department].map((a) => (
+                        <option key={a} value={a}>{a}</option>
+                      ))}
+                    </select>
+                    {errors.ailment && <div className="err">{errors.ailment}</div>}
+                  </div>
+                )}
 
                 <div className="field">
                   <label>WhatsApp Number (for confirmation)</label>
                   <input
                     type="tel"
-                    placeholder="9876543210"
+                    placeholder="0000000000"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     maxLength={10}
@@ -815,10 +859,10 @@ export default function ClinicPage() {
                     <span>Appointment</span>
                     <span>{selectedDayLabel} · {selectedSlot?.time}</span>
                   </div>
-                  <div className="confirm-row">
+                  {/* <div className="confirm-row">
                     <span>Clinic</span>
                     <span>Sinha Care Clinic</span>
-                  </div>
+                  </div> */}
                   {phone && (
                     <div className="confirm-row">
                       <span>WhatsApp</span>
@@ -828,7 +872,7 @@ export default function ClinicPage() {
                 </div>
 
                 <div style={{ marginTop: 24, display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
-                  <button
+                  {/* <button
                     className="confirm-whatsapp"
                     onClick={() => {
                       const msg = `Hi, I just booked an appointment at Sinha Care Clinic.\nRef: ${bookingRef}\nName: ${name}\nSlot: ${selectedDayLabel} at ${selectedSlot?.time}`;
@@ -836,7 +880,7 @@ export default function ClinicPage() {
                     }}
                   >
                     📱 Open WhatsApp
-                  </button>
+                  </button> */}
                   <button className="btn-secondary" onClick={reset} style={{ marginTop: 0 }}>
                     Book another
                   </button>
