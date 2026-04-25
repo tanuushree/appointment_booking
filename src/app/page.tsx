@@ -81,20 +81,12 @@ async function submitBooking(payload: BookingPayload): Promise<BookingResponse> 
 // ─── Ailment suggestions ───────────────────────────────────────────────────────
 
 const AILMENTS = [
-  "General Checkup",
-  "Fever / Cold / Flu",
-  "Skin Condition",
-  "Back or Joint Pain",
-  "Digestive Issues",
-  "Respiratory Problem",
-  "Headache / Migraine",
-  "Blood Pressure / Heart",
-  "Diabetes Management",
-  "Eye / Ear / Nose",
-  "Anxiety / Sleep Issues",
-  "Vaccination",
-  "Child Health",
-  "Women's Health",
+  "Checkup & X-Ray",
+  "Teeth Cleaning",
+  "Whitening",
+  "Braces",
+  "Root Canal",
+  "Dental Implants",
   "Other",
 ];
 
@@ -604,33 +596,33 @@ export default function ClinicPage() {
         <div className="hero-bg" />
         <div className="cross-mark">✚</div>
         <div className="hero-inner">
-          <div className="badge">Est. 2009 · Trusted Healthcare</div>
+          <div className="badge">Trusted by 2000+ patients - Book Today</div>
           <h1 className="clinic-name">
-            Sinha <em>Care</em><br />Clinic
+            Dent <em>Relief</em><br />Dental Clinic
           </h1>
           <p className="tagline">
-            Compassionate care, close to home — Dr. A. K. Sinha & Associates
+            9+ Years Gentle Dental Experience in Park Circus — Dr. Rakay Ahmed
           </p>
           <button className="book-btn" onClick={() => setShowForm(true)}>
             Book an Appointment
           </button>
           <div className="trust-row">
             <div className="trust-item">
-              <div className="trust-num">18k+</div>
+              <div className="trust-num">2k+</div>
               <div className="trust-label">Patients Treated</div>
             </div>
             <div className="trust-item">
-              <div className="trust-num">6</div>
-              <div className="trust-label">Specialist Doctors</div>
+              <div className="trust-num">500+</div>
+              <div className="trust-label">5-Star Reviews</div>
             </div>
             <div className="trust-item">
-              <div className="trust-num">15yr</div>
+              <div className="trust-num">9+yr</div>
               <div className="trust-label">Of Service</div>
             </div>
-            <div className="trust-item">
+            {/* <div className="trust-item">
               <div className="trust-num">Mon–Sat</div>
               <div className="trust-label">9am – 5pm</div>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
@@ -654,7 +646,7 @@ export default function ClinicPage() {
                     <label>Full Name *</label>
                     <input
                       type="text"
-                      placeholder="Ramesh Kumar"
+                      placeholder="Name"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                     />
@@ -664,7 +656,7 @@ export default function ClinicPage() {
                     <label>Age *</label>
                     <input
                       type="number"
-                      placeholder="32"
+                      placeholder="00"
                       value={age}
                       onChange={(e) => setAge(e.target.value)}
                       min={1} max={120}
@@ -677,7 +669,7 @@ export default function ClinicPage() {
                   <label>Address *</label>
                   <input
                     type="text"
-                    placeholder="123 Park Street, Kolkata, WB"
+                    placeholder="Address"
                     value={address}
                     onChange={(e) => setAddress(e.target.value)}
                   />
@@ -699,7 +691,7 @@ export default function ClinicPage() {
                   <label>WhatsApp Number (for confirmation)</label>
                   <input
                     type="tel"
-                    placeholder="9876543210"
+                    placeholder="0000000000"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     maxLength={10}
@@ -815,10 +807,10 @@ export default function ClinicPage() {
                     <span>Appointment</span>
                     <span>{selectedDayLabel} · {selectedSlot?.time}</span>
                   </div>
-                  <div className="confirm-row">
+                  {/* <div className="confirm-row">
                     <span>Clinic</span>
                     <span>Sinha Care Clinic</span>
-                  </div>
+                  </div> */}
                   {phone && (
                     <div className="confirm-row">
                       <span>WhatsApp</span>
@@ -828,7 +820,7 @@ export default function ClinicPage() {
                 </div>
 
                 <div style={{ marginTop: 24, display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
-                  <button
+                  {/* <button
                     className="confirm-whatsapp"
                     onClick={() => {
                       const msg = `Hi, I just booked an appointment at Sinha Care Clinic.\nRef: ${bookingRef}\nName: ${name}\nSlot: ${selectedDayLabel} at ${selectedSlot?.time}`;
@@ -836,7 +828,7 @@ export default function ClinicPage() {
                     }}
                   >
                     📱 Open WhatsApp
-                  </button>
+                  </button> */}
                   <button className="btn-secondary" onClick={reset} style={{ marginTop: 0 }}>
                     Book another
                   </button>
