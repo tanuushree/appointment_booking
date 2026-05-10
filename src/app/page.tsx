@@ -82,15 +82,41 @@ async function submitBooking(payload: BookingPayload): Promise<BookingResponse> 
 
 
 
-const AILMENTS = [
-    "Root Canal Treatment",
-    "Crown and Bridges",
-    "Dental Implant",
-    "Extraction",
-    "Aligners",
-    "Braces",
+const AILMENTS = {
+  "Preventive & Basic Care": [
+    "Teeth Cleaning (Scaling & Polishing)",
+    "Fluoride Treatments",
+    "Dental Sealants",
+  ],
+  "Restorative Treatments": [
+    "Single Sitting Root Canal Treatment (RCT)",
+    "GIC Restorations (Glass Ionomer Cement Fillings)",
+    "Composite Restorations (Aesthetic Fillings)",
+    "Inlays and Onlays",
+    "Tooth Jewellery",
+  ],
+  "Cosmetic Dentistry": [
     "Teeth Whitening",
-  ];
+    "Veneers",
+    "Bonding",
+    "Invisalign",
+  ],
+  "Surgical Procedures": [
+    "Tooth Extraction (Normal & Surgical)",
+    "Dental Implants",
+    "Apicoectomy (Root-End Surgery)",
+    "Scaling & Root Planing (Deep Cleaning)",
+    "Orthognathic (Corrective Jaw) Surgery",
+  ],
+  "Pediatric Dentistry": [
+    "Fluoride Varnish",
+    "Space Maintainers",
+    "Dental Sealants",
+    "Pulp Therapy (Pulpotomy/Pulpectomy)",
+    "Strip Crowns",
+    "Restorations for Children",
+  ],
+};
 
 // ─── Step indicator ────────────────────────────────────────────────────────────
 
@@ -127,9 +153,14 @@ export default function ClinicPage() {
   const [address, setAddress] = useState("");
  
 const [department, setDepartment] = useState<"dental" | "derma" | "">("");
+const [primaryAilment, setPrimaryAilment] = useState<keyof typeof AILMENTS | "">("");
   const [ailment, setAilment] = useState("");
   const [phone, setPhone] = useState("");
   const [errors, setErrors] = useState<Record<string, string>>({});
+
+
+  
+
 
   // Slot state
   const [daySlots, setDaySlots] = useState<DaySlots[]>([]);
@@ -600,11 +631,11 @@ const [department, setDepartment] = useState<"dental" | "derma" | "">("");
         <div className="hero-bg" />
         <div className="cross-mark">✚</div>
         <div className="hero-inner">
-          <div className="badge">Endo Specialty Dental Clinic</div>
+          <div className="badge">Reliable Dental Care Experts</div>
           <h1 className="clinic-name">
-            Dente<em>Go</em><br />
+            The Dental<em>Clinic</em><br />
           </h1>
-          <h3>Endo Specialty Dental Clinic</h3>
+          <h3>Our expert dentists deliver advanced care for a healthy, confident smile.</h3>
           <p className="tagline">
            Experience world-class dental care right here in Kolkata.
           </p>
@@ -613,21 +644,22 @@ const [department, setDepartment] = useState<"dental" | "derma" | "">("");
           </button>
           <div className="trust-row">
             <div className="trust-item">
-              <div className="trust-num">24hrs</div>
-              <div className="trust-label">Service</div>
+              <div className="trust-num">4,000
++</div>
+              <div className="trust-label">Happy Patients</div>
+            </div>
+            <div className="trust-item">
+              <div className="trust-num">8+</div>
+              <div className="trust-label">Years of Experience</div>
+            </div>
+            <div className="trust-item">
+              <div className="trust-num">10+</div>
+              <div className="trust-label">Dentists</div>
             </div>
             {/* <div className="trust-item">
-              <div className="trust-num">6</div>
-              <div className="trust-label">Specialist Doctors</div>
-            </div>
-            <div className="trust-item">
-              <div className="trust-num">15yr</div>
-              <div className="trust-label">Of Service</div>
-            </div> */}
-            <div className="trust-item">
               <div className="trust-num">Mon–Sat</div>
               <div className="trust-label">10:00am – 2:00pm</div>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
@@ -681,17 +713,31 @@ const [department, setDepartment] = useState<"dental" | "derma" | "">("");
                   {errors.address && <div className="err">{errors.address}</div>}
                 </div>
 
-                 <div className="field">
+                 {/* Step 1: Primary Ailment */}
+                <div className="field">
                   <label>Primary Ailment *</label>
-                  <select value={ailment} onChange={(e) => setAilment(e.target.value)}>
-                    <option value="">— Select or type your concern —</option>
-                    {AILMENTS.map((a) => (
-                      <option key={a} value={a}>{a}</option>
+                  <select value={primaryAilment} onChange={(e) => setPrimaryAilment(e.target.value as keyof typeof AILMENTS | "")}>
+                    <option value="">— Select a primary ailment —</option>
+                    {Object.keys(AILMENTS).map((key) => (
+                      <option key={key} value={key}>{key}</option>
                     ))}
                   </select>
-                  {errors.ailment && <div className="err">{errors.ailment}</div>}
+                  {errors.primaryAilment && <div className="err">{errors.primaryAilment}</div>}
                 </div>
 
+                {/* Step 2: Sub-Ailment (shown only after primary is selected) */}
+                {primaryAilment && (
+                  <div className="field">
+                    <label>Service *</label>
+                    <select value={ailment} onChange={(e) => setAilment(e.target.value)}>
+                      <option value="">— Select a service —</option>
+                      {AILMENTS[primaryAilment].map((a) => (
+                        <option key={a} value={a}>{a}</option>
+                      ))}
+                    </select>
+                    {errors.ailment && <div className="err">{errors.ailment}</div>}
+                  </div>
+                )}
 
                 <div className="field">
                   <label>WhatsApp Number (for confirmation)</label>
