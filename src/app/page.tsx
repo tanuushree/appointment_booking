@@ -85,11 +85,13 @@ async function submitBooking(payload: BookingPayload): Promise<BookingResponse> 
 const AILMENTS = [
     "Root Canal Treatment",
     "Crown and Bridges",
-    "Dental Implant",
-    "Extraction",
-    "Aligners",
-    "Braces",
-    "Teeth Whitening",
+    "Pulpectomy",
+    "Space maintainers",
+    "Surgical extractions",
+    "Periodontal Surgeries",
+    "Orthodontic treatment",
+    "Complete & Partial Dentures",
+    "Fillings & Restorations",
   ];
 
 // ─── Step indicator ────────────────────────────────────────────────────────────
@@ -600,21 +602,21 @@ const [department, setDepartment] = useState<"dental" | "derma" | "">("");
         <div className="hero-bg" />
         <div className="cross-mark">✚</div>
         <div className="hero-inner">
-          <div className="badge">Endo Specialty Dental Clinic</div>
+          <div className="badge">Pediatric Dental Treatment in Kolkata</div>
           <h1 className="clinic-name">
-            Dente<em>Go</em><br />
+            Denta <em>Cure</em><br />
           </h1>
-          <h3>Endo Specialty Dental Clinic</h3>
+          <h3>Turning your smile into an experience</h3>
           <p className="tagline">
-           Experience world-class dental care right here in Kolkata.
+           Your Trusted Dental Care Partner in Kolkata
           </p>
           <button className="book-btn" onClick={() => setShowForm(true)}>
             Book an Appointment
           </button>
           <div className="trust-row">
             <div className="trust-item">
-              <div className="trust-num">24hrs</div>
-              <div className="trust-label">Service</div>
+              <div className="trust-num">1000+</div>
+              <div className="trust-label">Happy Patients</div>
             </div>
             {/* <div className="trust-item">
               <div className="trust-num">6</div>
@@ -625,8 +627,8 @@ const [department, setDepartment] = useState<"dental" | "derma" | "">("");
               <div className="trust-label">Of Service</div>
             </div> */}
             <div className="trust-item">
-              <div className="trust-num">Mon–Sat</div>
-              <div className="trust-label">10:00am – 2:00pm</div>
+              <div className="trust-num">5</div>
+              <div className="trust-label">Star Ratings</div>
             </div>
           </div>
         </div>
