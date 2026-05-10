@@ -82,8 +82,7 @@ async function submitBooking(payload: BookingPayload): Promise<BookingResponse> 
 
 
 
-const AILMENTS = {
-  dental: [
+const AILMENTS = [
     "Root Canal Treatment",
     "Crown and Bridges",
     "Dental Implant",
@@ -91,17 +90,7 @@ const AILMENTS = {
     "Aligners",
     "Braces",
     "Teeth Whitening",
-  ],
-  derma: [
-    "Anti-Ageing Therapy",
-    "Advance Laser Treatment",
-    "Acne Treatment",
-    "Hair Restoration & Transplant",
-    "Skin Depigmentation",
-    "PRP and Mesotherapy",
-    "Chemical Peel",
-  ],
-};
+  ];
 
 // ─── Step indicator ────────────────────────────────────────────────────────────
 
@@ -611,13 +600,13 @@ const [department, setDepartment] = useState<"dental" | "derma" | "">("");
         <div className="hero-bg" />
         <div className="cross-mark">✚</div>
         <div className="hero-inner">
-          <div className="badge">Experience Excellence in Dental & Skin Service</div>
+          <div className="badge">Endo Specialty Dental Clinic</div>
           <h1 className="clinic-name">
-            Holy  <em>Smile</em><br />Skin & Dental<br/>
+            Dente<em>Go</em><br />
           </h1>
-          <h3>Advanced Medical Clinic</h3>
+          <h3>Endo Specialty Dental Clinic</h3>
           <p className="tagline">
-            Derma & Dental in one place — Dr. Amit Nandi & Dr. Prapti Mitra
+           Experience world-class dental care right here in Kolkata.
           </p>
           <button className="book-btn" onClick={() => setShowForm(true)}>
             Book an Appointment
@@ -637,7 +626,7 @@ const [department, setDepartment] = useState<"dental" | "derma" | "">("");
             </div> */}
             <div className="trust-item">
               <div className="trust-num">Mon–Sat</div>
-              <div className="trust-label">10:30am – 8pm</div>
+              <div className="trust-label">10:00am – 2:00pm</div>
             </div>
           </div>
         </div>
@@ -692,52 +681,17 @@ const [department, setDepartment] = useState<"dental" | "derma" | "">("");
                   {errors.address && <div className="err">{errors.address}</div>}
                 </div>
 
-               {/* Step 1: Pick department */}
-                <div className="field">
-                  <label>Department *</label>
-                  <div style={{ display: "flex", gap: 10, marginTop: 4 }}>
-                    {[
-                      { key: "dental", label: "🦷 Dental" },
-                      { key: "derma",  label: "✨ Skin & Hair" },
-                    ].map(({ key, label }) => (
-                      <button
-                        key={key}
-                        type="button"
-                        onClick={() => { setDepartment(key as "dental" | "derma"); setAilment(""); }}
-                        style={{
-                          flex: 1,
-                          padding: "12px",
-                          borderRadius: 10,
-                          border: `1.5px solid ${department === key ? "#0f766e" : "#d1faf5"}`,
-                          background: department === key ? "#0f766e" : "#f8fffd",
-                          color: department === key ? "#fff" : "#2d6a66",
-                          fontFamily: "inherit",
-                          fontSize: 14,
-                          fontWeight: 600,
-                          cursor: "pointer",
-                          transition: "all 0.2s",
-                        }}
-                      >
-                        {label}
-                      </button>
+                 <div className="field">
+                  <label>Primary Ailment *</label>
+                  <select value={ailment} onChange={(e) => setAilment(e.target.value)}>
+                    <option value="">— Select or type your concern —</option>
+                    {AILMENTS.map((a) => (
+                      <option key={a} value={a}>{a}</option>
                     ))}
-                  </div>
-                  {errors.department && <div className="err">{errors.department}</div>}
+                  </select>
+                  {errors.ailment && <div className="err">{errors.ailment}</div>}
                 </div>
 
-                {/* Step 2: Pick ailment based on department */}
-                {department && (
-                  <div className="field">
-                    <label>Service *</label>
-                    <select value={ailment} onChange={(e) => setAilment(e.target.value)}>
-                      <option value="">— Select a service —</option>
-                      {AILMENTS[department].map((a) => (
-                        <option key={a} value={a}>{a}</option>
-                      ))}
-                    </select>
-                    {errors.ailment && <div className="err">{errors.ailment}</div>}
-                  </div>
-                )}
 
                 <div className="field">
                   <label>WhatsApp Number (for confirmation)</label>
