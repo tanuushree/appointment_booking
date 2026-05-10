@@ -87,9 +87,7 @@ const AILMENTS = [
     "DENTAL SURGERY",
     "PROSTHODONTICS",
     "ORTHODONTICS",
-    "BOTOX & LIP ENHANCEMENT",
     "PEDODONTICS",
-    "CANCER DIAGNOSIS",
     "PERIODONTICS",
   ];
 
@@ -601,21 +599,21 @@ const [department, setDepartment] = useState<"dental" | "derma" | "">("");
         <div className="hero-bg" />
         <div className="cross-mark">✚</div>
         <div className="hero-inner">
-          <div className="badge">Pediatric Dental Treatment in Kolkata</div>
+          <div className="badge">Best Dental CLinic in Kolkata.</div>
           <h1 className="clinic-name">
-            Dental <em>Earth</em><br />
+            Pearly <em>Shine </em>Dental Clinic<br />
           </h1>
-          <h3>Dental Earth is a complete highly equipped dental clinic. </h3>
+          <h3>We provide reliable information and resources for our community.  </h3>
           <p className="tagline">
-           We provide detailed treatment plan along with appointment schedule.
+          Waiting will cost you, book your appointment.
           </p>
           <button className="book-btn" onClick={() => setShowForm(true)}>
             Book an Appointment
           </button>
           <div className="trust-row">
             <div className="trust-item">
-              <div className="trust-num">1000+</div>
-              <div className="trust-label">Happy Patients</div>
+              <div className="trust-num">24/7</div>
+              <div className="trust-label">Availabilty</div>
             </div>
             {/* <div className="trust-item">
               <div className="trust-num">6</div>
