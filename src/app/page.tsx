@@ -83,15 +83,14 @@ async function submitBooking(payload: BookingPayload): Promise<BookingResponse> 
 
 
 const AILMENTS = [
-    "Root Canal Treatment",
-    "Crown and Bridges",
-    "Pulpectomy",
-    "Space maintainers",
-    "Surgical extractions",
-    "Periodontal Surgeries",
-    "Orthodontic treatment",
-    "Complete & Partial Dentures",
-    "Fillings & Restorations",
+    "ENDODONTICS",
+    "DENTAL SURGERY",
+    "PROSTHODONTICS",
+    "ORTHODONTICS",
+    "BOTOX & LIP ENHANCEMENT",
+    "PEDODONTICS",
+    "CANCER DIAGNOSIS",
+    "PERIODONTICS",
   ];
 
 // ─── Step indicator ────────────────────────────────────────────────────────────
@@ -604,11 +603,11 @@ const [department, setDepartment] = useState<"dental" | "derma" | "">("");
         <div className="hero-inner">
           <div className="badge">Pediatric Dental Treatment in Kolkata</div>
           <h1 className="clinic-name">
-            Denta <em>Cure</em><br />
+            Dental <em>Earth</em><br />
           </h1>
-          <h3>Turning your smile into an experience</h3>
+          <h3>Dental Earth is a complete highly equipped dental clinic. </h3>
           <p className="tagline">
-           Your Trusted Dental Care Partner in Kolkata
+           We provide detailed treatment plan along with appointment schedule.
           </p>
           <button className="book-btn" onClick={() => setShowForm(true)}>
             Book an Appointment
