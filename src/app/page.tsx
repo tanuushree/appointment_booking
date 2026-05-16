@@ -93,12 +93,12 @@ const AILMENTS = {
     "Teeth Whitening",
   ],
   derma: [
-    "Anti-Ageing Therapy",
-    "Advance Laser Treatment",
-    "Acne Treatment",
-    "Hair Restoration & Transplant",
-    "Skin Depigmentation",
-    "PRP and Mesotherapy",
+    "Eyebrow Microblading",
+    "Lip Blushing",
+    "Hydra Facial",
+    "Skin PRP",
+    "Micro Needling",
+    "Hair PRP",
     "Chemical Peel",
   ],
 };
@@ -613,11 +613,12 @@ const [department, setDepartment] = useState<"dental" | "derma" | "">("");
         <div className="hero-inner">
           <div className="badge">Experience Excellence in Dental & Skin Service</div>
           <h1 className="clinic-name">
-            Holy  <em>Smile</em><br />Skin & Dental<br/>
+            Lumina  <em>Dental</em><br /> & Esthetic Clinic<br/>
           </h1>
-          <h3>Advanced Medical Clinic</h3>
+          <h3>First Impressions
+Begin with a Smile</h3>
           <p className="tagline">
-            Derma & Dental in one place — Dr. Amit Nandi & Dr. Prapti Mitra
+            We are a private health care dedicated to providing quality dental care in cosmetic, restorative, and general dentistry.
           </p>
           <button className="book-btn" onClick={() => setShowForm(true)}>
             Book an Appointment
@@ -698,7 +699,7 @@ const [department, setDepartment] = useState<"dental" | "derma" | "">("");
                   <div style={{ display: "flex", gap: 10, marginTop: 4 }}>
                     {[
                       { key: "dental", label: "🦷 Dental" },
-                      { key: "derma",  label: "✨ Skin & Hair" },
+                      { key: "derma",  label: "✨ Esthetics" },
                     ].map(({ key, label }) => (
                       <button
                         key={key}
