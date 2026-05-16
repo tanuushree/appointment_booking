@@ -611,33 +611,35 @@ const [department, setDepartment] = useState<"dental" | "derma" | "">("");
         <div className="hero-bg" />
         <div className="cross-mark">✚</div>
         <div className="hero-inner">
-          <div className="badge">Experience Excellence in Dental & Skin Service</div>
+          <div className="badge">Trusted dental excellence in Kolkata</div>
           <h1 className="clinic-name">
-            Holy  <em>Smile</em><br />Skin & Dental<br/>
+            Dontia  <em>Care</em><br />Clinic<br/>
           </h1>
-          <h3>Advanced Medical Clinic</h3>
+          <h3>We offer a wide range of dental and skin care services.</h3>
           <p className="tagline">
-            Derma & Dental in one place — Dr. Amit Nandi & Dr. Prapti Mitra
+            where science meets artistry — creating brighter smiles, healthier skin, and better overall well-being every day.
           </p>
           <button className="book-btn" onClick={() => setShowForm(true)}>
             Book an Appointment
           </button>
           <div className="trust-row">
             <div className="trust-item">
-              <div className="trust-num">24hrs</div>
-              <div className="trust-label">Service</div>
-            </div>
-            {/* <div className="trust-item">
-              <div className="trust-num">6</div>
-              <div className="trust-label">Specialist Doctors</div>
+              <div className="trust-num">22K+</div>
+              <div className="trust-label">Patients Consulted</div>
             </div>
             <div className="trust-item">
-              <div className="trust-num">15yr</div>
-              <div className="trust-label">Of Service</div>
-            </div> */}
+              <div className="trust-num">80K+</div>
+              <div className="trust-label">Best Services
+</div>
+            </div>
             <div className="trust-item">
-              <div className="trust-num">Mon–Sat</div>
-              <div className="trust-label">10:30am – 8pm</div>
+              <div className="trust-num">9K+</div>
+              <div className="trust-label">Patients Treated</div>
+            </div>
+            <div className="trust-item">
+              <div className="trust-num">100+</div>
+              <div className="trust-label">
+Total Doctors</div>
             </div>
           </div>
         </div>
@@ -698,7 +700,7 @@ const [department, setDepartment] = useState<"dental" | "derma" | "">("");
                   <div style={{ display: "flex", gap: 10, marginTop: 4 }}>
                     {[
                       { key: "dental", label: "🦷 Dental" },
-                      { key: "derma",  label: "✨ Skin & Hair" },
+                      { key: "derma",  label: "✨ Skin Care" },
                     ].map(({ key, label }) => (
                       <button
                         key={key}
