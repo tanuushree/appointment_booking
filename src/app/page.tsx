@@ -600,13 +600,13 @@ const [department, setDepartment] = useState<"dental" | "derma" | "">("");
         <div className="hero-bg" />
         <div className="cross-mark">✚</div>
         <div className="hero-inner">
-          <div className="badge">Endo Specialty Dental Clinic</div>
+          <div className="badge">Your Oral Health Matters to Us</div>
           <h1 className="clinic-name">
             Agarwal <em>Esthetic</em> Zone Dental Clinic<br />
           </h1>
-          <h3>Endo Specialty Dental Clinic</h3>
+          <h3>Your Premier Destination for Dental Care in Kolkata</h3>
           <p className="tagline">
-           Experience world-class dental care right here in Kolkata.
+           Your Oral Health Matters to Us
           </p>
           <button className="book-btn" onClick={() => setShowForm(true)}>
             Book an Appointment
