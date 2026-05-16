@@ -600,33 +600,33 @@ const [department, setDepartment] = useState<"dental" | "derma" | "">("");
         <div className="hero-bg" />
         <div className="cross-mark">✚</div>
         <div className="hero-inner">
-          <div className="badge">Your Oral Health Matters to Us</div>
+          <div className="badge">For your Strong and Healthy Teeth</div>
           <h1 className="clinic-name">
-            Agarwal <em>Esthetic</em> Zone Dental Clinic<br />
+            Teeth <em>Care</em><br />
           </h1>
-          <h3>Your Premier Destination for Dental Care in Kolkata</h3>
+          <h3>The best dentist in Kolkata eagerly waiting to cure your dental problems</h3>
           <p className="tagline">
-           Your Oral Health Matters to Us
+           Multispeciality Dental Clinic
           </p>
           <button className="book-btn" onClick={() => setShowForm(true)}>
             Book an Appointment
           </button>
           <div className="trust-row">
             <div className="trust-item">
-              <div className="trust-num">24hrs</div>
-              <div className="trust-label">Service</div>
-            </div>
-            {/* <div className="trust-item">
-              <div className="trust-num">6</div>
-              <div className="trust-label">Specialist Doctors</div>
+              <div className="trust-num">11+</div>
+              <div className="trust-label">Years of Experience</div>
             </div>
             <div className="trust-item">
-              <div className="trust-num">15yr</div>
-              <div className="trust-label">Of Service</div>
-            </div> */}
+              <div className="trust-num">28k+</div>
+              <div className="trust-label">Happy Patients</div>
+            </div>
             <div className="trust-item">
-              <div className="trust-num">Mon–Sat</div>
-              <div className="trust-label">10:00am – 2:00pm</div>
+              <div className="trust-num">12+</div>
+              <div className="trust-label">Expert MDS Doctors</div>
+            </div>
+            <div className="trust-item">
+              <div className="trust-num">2</div>
+              <div className="trust-label">Total Branches</div>
             </div>
           </div>
         </div>
