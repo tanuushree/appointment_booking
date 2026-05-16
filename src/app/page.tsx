@@ -83,12 +83,12 @@ async function submitBooking(payload: BookingPayload): Promise<BookingResponse> 
 
 
 const AILMENTS = [
-    "ENDODONTICS",
-    "DENTAL SURGERY",
-    "PROSTHODONTICS",
-    "ORTHODONTICS",
-    "PEDODONTICS",
-    "PERIODONTICS",
+    "Dental Checkup",
+    "Teeth Whitening",
+    "Bad Breath (Halitosis)",
+    "Dental Cavities",
+    "Orthodontics",
+    "Cosmetic Dentistry",
   ];
 
 // ─── Step indicator ────────────────────────────────────────────────────────────
@@ -599,13 +599,13 @@ const [department, setDepartment] = useState<"dental" | "derma" | "">("");
         <div className="hero-bg" />
         <div className="cross-mark">✚</div>
         <div className="hero-inner">
-          <div className="badge">Best Dental CLinic in Kolkata.</div>
+          <div className="badge">Best Dental CLinic Chain in Kolkata.</div>
           <h1 className="clinic-name">
-            Pearly <em>Shine </em>Dental Clinic<br />
+            Budding <em>Smile </em><br />
           </h1>
-          <h3>We provide reliable information and resources for our community.  </h3>
+          <h3>we provide a full spectrum of dental treatments designed to cater to your unique oral health needs.  </h3>
           <p className="tagline">
-          Waiting will cost you, book your appointment.
+          Trusted by hundreds of families in Kolkata
           </p>
           <button className="book-btn" onClick={() => setShowForm(true)}>
             Book an Appointment
