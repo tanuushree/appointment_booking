@@ -84,11 +84,11 @@ async function submitBooking(payload: BookingPayload): Promise<BookingResponse> 
 
 const AILMENTS = [
     "Root Canal Treatment",
-    "Crown and Bridges",
+    "Cosmetic Dentistry",
     "Dental Implant",
     "Extraction",
-    "Aligners",
-    "Braces",
+    "Pediatric Dentistry",
+    "Dentures",
     "Teeth Whitening",
   ];
 
@@ -602,7 +602,7 @@ const [department, setDepartment] = useState<"dental" | "derma" | "">("");
         <div className="hero-inner">
           <div className="badge">Endo Specialty Dental Clinic</div>
           <h1 className="clinic-name">
-            Dente<em>Go</em><br />
+            Agarwal <em>Esthetic</em> Zone Dental Clinic<br />
           </h1>
           <h3>Endo Specialty Dental Clinic</h3>
           <p className="tagline">
