@@ -87,8 +87,8 @@ const AILMENTS = [
     "Cosmetic Dentistry",
     "Dental Implant",
     "Extraction",
-    "Pediatric Dentistry",
-    "Dentures",
+    "General Dentistry",
+    "Invisalign",
     "Teeth Whitening",
   ];
 
@@ -600,13 +600,13 @@ const [department, setDepartment] = useState<"dental" | "derma" | "">("");
         <div className="hero-bg" />
         <div className="cross-mark">✚</div>
         <div className="hero-inner">
-          <div className="badge">Endo Specialty Dental Clinic</div>
+          <div className="badge">Your Smile ..... our Passion</div>
           <h1 className="clinic-name">
-            Agarwal <em>Esthetic</em> Zone Dental Clinic<br />
+            Avant <em>Dental</em><br />
           </h1>
-          <h3>Endo Specialty Dental Clinic</h3>
+          <h3>Your Ultimate Source for Best Dental Treatment in Salt Lake Kolkata</h3>
           <p className="tagline">
-           Experience world-class dental care right here in Kolkata.
+           Equipped with the best technology for your Dental Care.
           </p>
           <button className="book-btn" onClick={() => setShowForm(true)}>
             Book an Appointment
